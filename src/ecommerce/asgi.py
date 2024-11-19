@@ -11,6 +11,14 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce.settings')
+from .settings import base
+
+
+SETTINGS_FILE = "local"
+
+if not base.DEBUG:
+    SETTINGS_FILE = "production"
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", f"ecommerce.settings.{SETTINGS_FILE}")
 
 application = get_asgi_application()
