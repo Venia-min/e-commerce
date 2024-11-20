@@ -6,7 +6,7 @@ import os
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-print(BASE_DIR)
+
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = True
